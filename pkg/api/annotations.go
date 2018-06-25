@@ -268,7 +268,7 @@ func DeleteAnnotationRegion(c *m.ReqContext) Response {
 }
 
 func canSaveByDashboardID(c *m.ReqContext, dashboardID int64) (bool, error) {
-	if dashboardID == 0 && !c.SignedInUser.HasRole(m.ROLE_EDITOR) {
+	if dashboardID <= 0 && !c.SignedInUser.HasRole(m.ROLE_EDITOR) {
 		return false, nil
 	}
 
